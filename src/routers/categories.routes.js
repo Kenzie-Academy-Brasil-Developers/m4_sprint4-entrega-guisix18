@@ -8,5 +8,6 @@ routeCategories.post("", categoriesController.store);
 routeCategories.get("", categoriesController.index);
 routeCategories.get("/:id", categoriesController.show);
 routeCategories.patch("/:id", categoriesController.update);
+routeCategories.delete("/:id", categoriesController.delete);
 
 export default routeCategories;
