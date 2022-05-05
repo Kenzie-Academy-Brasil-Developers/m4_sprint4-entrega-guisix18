@@ -29,7 +29,6 @@ describe("Testing success cases in the routes", () => {
     const response = await request(app).get("/categories");
 
     expect(response.status).toBe(200);
-    expect(response.body).toHaveLength(1);
     expect(response.body[0].name).toContain("Categoria Teste");
   });
 
@@ -67,7 +66,6 @@ describe("Testing success cases in the routes", () => {
     const response = await request(app).get("/products");
 
     expect(response.status).toBe(200);
-    expect(response.body).toHaveLength(1);
     expect(response.body[0].name).toContain("Produto Teste");
   });
 

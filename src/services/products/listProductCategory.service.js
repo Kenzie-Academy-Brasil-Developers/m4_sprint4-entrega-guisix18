@@ -12,7 +12,7 @@ const listProductCategoryService = async ({id}) => {
             throw new Error("ID invalid");
         }
 
-        return res.rows[0];
+        return res.rows;
 
     } catch (err) {
         throw new Error(err);
