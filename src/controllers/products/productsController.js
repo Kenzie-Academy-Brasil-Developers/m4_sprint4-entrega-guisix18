@@ -1,16 +1,17 @@
 import createProductService from "../../services/products/createProduct.service";
 import deleteProductService from "../../services/products/deleteProduct.service";
 import listOneProductService from "../../services/products/listOneProduct.service";
+import listProductCategoryService from "../../services/products/listProductCategory.service";
 import listProductsService from "../../services/products/listProducts.service";
 import updateProductService from "../../services/products/updateProduct.service";
 
 
 export default class ProductsController {
     async store(request, response) {
-        const {name, price} = request.body;
+        const {name, price, category_id} = request.body;
 
         try {
-            const product = await createProductService({name, price});
+            const product = await createProductService({name, price, category_id});
 
             return response.status(201).json(product);
         } catch (err) {
@@ -49,12 +50,12 @@ export default class ProductsController {
         }
     }
 
-    update(request, response) {
+    async update(request, response) {
         const {id} = request.params;
         const {name, price} = request.body;
 
         try {
-            const updateProduct = updateProductService({name, price, id});
+            const updateProduct = await updateProductService({name, price, id});
 
             return response.status(202).json(updateProduct);
         } catch (err) {
@@ -65,11 +66,11 @@ export default class ProductsController {
         }
     }
 
-    delete(request, response) {
+    async delete(request, response) {
         const {id} = request.params;
 
         try {
-            const deleteProduct = deleteProductService({id});
+            const deleteProduct = await deleteProductService({id});
 
             return response.status(204).json(deleteProduct);
         } catch (err) {
@@ -79,5 +80,20 @@ export default class ProductsController {
             });
         }
 
+    }
+
+    async showWithCategory(request, response) {
+        const {id} = request.params;
+
+        try {
+            const showProductAndCategory = await listProductCategoryService({id});
+
+            return response.status(200).json(showProductAndCategory);
+        } catch (err) {
+            return response.status(400).json({
+                status: "error",
+                message: err.message
+            })
+        }
     }
 }

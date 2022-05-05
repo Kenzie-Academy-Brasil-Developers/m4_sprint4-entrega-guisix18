@@ -8,6 +8,7 @@ const productsController = new ProductsController();
 routeProducts.post("", productsController.store);
 routeProducts.get("", productsController.index);
 routeProducts.get("/:id", productsController.show);
+routeProducts.get("/category/:id", productsController.showWithCategory);
 routeProducts.patch("/:id", productsController.update);
 routeProducts.delete("/:id", productsController.delete);
 
