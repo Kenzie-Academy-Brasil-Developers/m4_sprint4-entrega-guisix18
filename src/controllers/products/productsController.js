@@ -83,10 +83,10 @@ export default class ProductsController {
     }
 
     async showWithCategory(request, response) {
-        const {id} = request.params;
+        const {category_id} = request.params;
 
         try {
-            const showProductAndCategory = await listProductCategoryService({id});
+            const showProductAndCategory = await listProductCategoryService({category_id});
 
             return response.status(200).json(showProductAndCategory);
         } catch (err) {

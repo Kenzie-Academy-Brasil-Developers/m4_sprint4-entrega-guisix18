@@ -1,11 +1,11 @@
 import database from "../../database";
 
-const listProductCategoryService = async ({id}) => {
+const listProductCategoryService = async ({category_id}) => {
 
     try {
         const res =  await database.query(
             "SELECT p.name, p.price, c.name category FROM products p INNER JOIN categories c ON c.id = p.category_id WHERE p.category_id = $1",
-        [id]
+        [category_id]
         );
 
         if (!res.rows.length) {

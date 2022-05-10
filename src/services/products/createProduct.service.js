@@ -7,7 +7,9 @@ const createProductService = async ({name, price, category_id}) => {
             "INSERT INTO products(name, price, category_id) VALUES($1, $2, $3) RETURNING *",
             [name, price, category_id]
         );
-        return res.rows[0];
+
+        return {message: "Product created", product: res.rows[0]};
+        
     } catch (err) {
         throw new Error("Something is wrong");
     }
