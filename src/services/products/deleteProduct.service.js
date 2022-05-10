@@ -12,7 +12,8 @@ const deleteProductService = async ({id}) => {
             throw new Error("ID invalid");
         }
 
-        return res.rows[0];
+        return {message: "Product deleted", product: res.rows[0]};
+        
     } catch (err) {
         throw new Error(err);
     }

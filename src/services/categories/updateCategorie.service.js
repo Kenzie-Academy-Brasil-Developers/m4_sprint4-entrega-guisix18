@@ -13,7 +13,7 @@ const updateCategorieService = async ({id, name}) => {
             throw new Error("Not found any categories with this ID");
         }
 
-        return {message: "Category updated", category: [ updatedCategorie.rows[0] ]};
+        return {message: "Category updated", category: updatedCategorie.rows[0]};
 
     } catch (err) {
         throw new Error(err);

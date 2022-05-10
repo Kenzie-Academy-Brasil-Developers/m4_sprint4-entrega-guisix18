@@ -12,7 +12,7 @@ const updateProductService = async ({name, price, id}) => {
             throw new Error("Not found any products with this ID");
         }
 
-        return {message: "Product updated", product: [ res.rows[0] ]};
+        return {message: "Product updated", product: res.rows[0]};
 
     } catch (err) {
         throw new Error(err);

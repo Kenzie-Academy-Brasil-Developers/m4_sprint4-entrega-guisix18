@@ -57,7 +57,7 @@ export default class ProductsController {
         try {
             const updateProduct = await updateProductService({name, price, id});
 
-            return response.status(202).json(updateProduct);
+            return response.status(200).json(updateProduct);
         } catch (err) {
             return response.status(400).json({
                 status: "error",
@@ -72,7 +72,7 @@ export default class ProductsController {
         try {
             const deleteProduct = await deleteProductService({id});
 
-            return response.status(204).json(deleteProduct);
+            return response.status(200).json(deleteProduct);
         } catch (err) {
             return response.status(400).json({
                 status: "error",

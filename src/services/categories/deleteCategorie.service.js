@@ -12,8 +12,8 @@ const deleteCategorieService = async ({id}) => {
         if (!res.rows.length) {
             throw new Error("ID invalid");
         }
-
-        return res.rows[0];
+        
+        return {message: "Category deleted", category: res.rows[0] };
 
     } catch (err) {
         throw new Error(err);

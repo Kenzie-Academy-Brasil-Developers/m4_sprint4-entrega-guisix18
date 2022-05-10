@@ -73,7 +73,7 @@ export default class CategoriesController {
         try {
             const deleteCategorie = await deleteCategorieService({id});
 
-            return response.status(204).json(deleteCategorie);
+            return response.status(200).json(deleteCategorie);
         } catch (err) {
             return response.status(400).json({
                 status: "error",
