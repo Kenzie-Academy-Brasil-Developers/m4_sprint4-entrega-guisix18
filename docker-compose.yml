@@ -13,10 +13,22 @@ services:
     container_name: db
     image: postgres:12
     ports:
-      - 5432:5432
+      - 5431:5432
     environment:
       - POSTGRES_USER=guilherme_linux
       - POSTGRES_PASSWORD=2003
       - POSTGRES_DB=products_management       
+    volumes:
+      - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+  db_teste:
+    container_name: db_teste
+    image: postgres:12
+    ports:
+      - 5430:5432
+    environment:
+      - POSTGRES_USER=guilherme_linux
+      - POSTGRES_PASSWORD=2003
+      - POSTGRES_DB=tests_products       
     volumes:
       - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
