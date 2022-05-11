@@ -52,7 +52,7 @@ export default class ProductsController {
 
     async update(request, response) {
         const {id} = request.params;
-        const {name, price} = request.body;
+        const {name, price, category_id} = request.body;
 
         try {
             const updateProduct = await updateProductService({name, price, id});

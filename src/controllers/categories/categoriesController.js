@@ -9,7 +9,7 @@ export default class CategoriesController {
         const {name} = request.body;
         try {
             const categorie = await createCategorieService({name});
-
+            
             return response.status(201).json(categorie);
         } catch (err) {
             return response.status(400).json({
@@ -56,7 +56,7 @@ export default class CategoriesController {
         try {
             const updateCategorie = await updateCategorieService({id, name});
 
-            return response.status(202).json(updateCategorie);
+            return response.json(updateCategorie);
         } catch (err) {
             return response.status(400).json({
                 status: "error",
